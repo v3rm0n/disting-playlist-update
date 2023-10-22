@@ -2,8 +2,6 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*.*.*"
 
 jobs:
   release:
@@ -13,9 +11,6 @@ jobs:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
     steps:
       - uses: actions/checkout@v4
-      - name: Set tag
-        id: vars
-        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3
         with:
